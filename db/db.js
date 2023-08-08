@@ -2,7 +2,7 @@ import mongoose from "mongoose"
 
 async function dbConnect () {
   try {
-    await mongoose.connect('mongodb+srv://journal_dev:9L2EkAOoejrMNz7y@clusterfamily.yjrp3d8.mongodb.net/journal?retryWrites=true&w=majority')
+    await mongoose.connect(process.env.ATLAS_DB_URL)
     console.log('Mongoose conected')
   }
   catch (error) {

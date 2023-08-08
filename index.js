@@ -2,7 +2,9 @@ import express from 'express'
 import { CategoryModel } from '@src/models'
 import { entryRoute } from '@controllers/routes'
 import { dbConnect } from '@controllers/db'
+import dotenv from 'dotenv'
 
+dotenv.config()
 dbConnect()
 
 const app = express()
