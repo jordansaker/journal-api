@@ -1,4 +1,4 @@
-import mongoose from "mongoose"
+import mongoose from 'mongoose'
 
 const categorySchema = new mongoose.Schema({
   name: {
@@ -6,7 +6,7 @@ const categorySchema = new mongoose.Schema({
     required: true,
     unique: true,
     cast: false
-   }
+  }
 })
 
 const CategoryModel = mongoose.model('Category', categorySchema)

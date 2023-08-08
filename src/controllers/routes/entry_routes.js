@@ -1,5 +1,5 @@
-import { Router } from "express"
-import { EntryModel, CategoryModel } from "@src/models"
+import { Router } from 'express'
+import { EntryModel, CategoryModel } from '@src/models'
 
 const router = Router()
 
@@ -35,10 +35,8 @@ router.put('/:id', async (req, res) => {
     const updatedEntry = {}
     if (req.body.category) {
       await CategoryModel.findOne({ name: req.body.category })
-      ? 
-      updatedEntry.category =  await CategoryModel.findOne({ name: req.body.category })._id
-      :
-      res.status(404).send({ error: 'category not found' })
+        ? updatedEntry.category = await CategoryModel.findOne({ name: req.body.category })._id
+        : res.status(404).send({ error: 'category not found' })
     }
     updatedEntry.content = req.body.content && req.body.content
     const entry = await EntryModel.findByIdAndUpdate(req.params.id, updatedEntry, { new: true, runValidators: true })

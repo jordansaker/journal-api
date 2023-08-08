@@ -9,7 +9,7 @@ const validateCategory = function (val) {
 const entrySchema = new mongoose.Schema({
   category: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Category',
+    ref: 'Category'
   },
   content: {
     type: String,

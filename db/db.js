@@ -1,11 +1,10 @@
-import mongoose from "mongoose"
+import mongoose from 'mongoose'
 
 async function dbConnect () {
   try {
     await mongoose.connect(process.env.ATLAS_DB_URL)
     console.log('Mongoose conected')
-  }
-  catch (error) {
+  } catch (error) {
     console.log(`Mongoose Failed: ${error}`)
   }
 }

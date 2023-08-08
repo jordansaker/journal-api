@@ -1,5 +1,5 @@
-import { EntryModel, CategoryModel } from "@src/models"
-import { dbClose, dbConnect } from "./db.js"
+import { EntryModel, CategoryModel } from '@src/models'
+import { dbClose, dbConnect } from './db.js'
 import dotenv from 'dotenv'
 
 dotenv.config()
