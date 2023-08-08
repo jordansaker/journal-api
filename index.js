@@ -5,19 +5,13 @@ import { dbConnect } from '@controllers/db'
 
 dbConnect()
 
-async function addEntry () {
-  return async () => { return await CategoryModel.findOne({ name: 'Coding' }) }
-}
-
 const app = express()
 const port = 4001
 
 app.use(express.json())
 
-app.get('/', (req, res) => { res.send({ info: 'Journal API', test: 'hot module' }) })
+app.use('/entries', entryRoute)
 
 app.get('/categories', async (req, res) => res.send(await CategoryModel.find()))
-
-app.use('/entries', entryRoute)
 
 app.listen(port)

@@ -4,9 +4,7 @@ import { EntryModel, CategoryModel } from "@src/models"
 const router = Router()
 
 router.get('', async (req, res) => {
-  res.send({
-    Entries: await EntryModel.find()
-  })
+  res.send(await EntryModel.find().populate('category', 'name -_id').exec())
 })
 
 router.post('', async (req, res) => {
@@ -25,7 +23,7 @@ router.post('', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const entry = await EntryModel.findById(req.params.id)
+    const entry = await EntryModel.findById(req.params.id).populate('category', 'name -_id').exec()
     entry ? res.send(entry) : res.status(404).send({ error: 'Entry not found' })
   } catch (error) {
     res.status(500).send({ error: error.message })
