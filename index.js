@@ -1,6 +1,5 @@
 import express from 'express'
-import { CategoryModel } from '@src/models'
-import { entryRoute } from '@controllers/routes'
+import { entryRouter, categoryRouter } from '@controllers/routes'
 import { dbConnect } from '@controllers/db'
 import dotenv from 'dotenv'
 
@@ -12,8 +11,8 @@ const port = 4001
 
 app.use(express.json())
 
-app.use('/entries', entryRoute)
+app.use('/entries', entryRouter)
 
-app.get('/categories', async (req, res) => res.send(await CategoryModel.find()))
+app.use('/categories', categoryRouter)
 
 app.listen(port)

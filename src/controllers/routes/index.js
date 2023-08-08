@@ -1,5 +1,7 @@
-import entryRoute from './entry_routes.js'
+import entryRouter from './entry_routes.js'
+import categoryRouter from './category_routes.js'
 
 export {
-  entryRoute
+  entryRouter,
+  categoryRouter
 }
