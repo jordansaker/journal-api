@@ -4,7 +4,8 @@ import { EntryModel, CategoryModel } from '@src/models'
 const router = Router()
 
 router.get('', async (req, res) => {
-  res.send(await EntryModel.find().populate('category', 'name -_id').exec())
+  const entries = await EntryModel.find().populate('category', 'name -_id').exec()
+  res.send(entries)
 })
 
 router.post('', async (req, res) => {
