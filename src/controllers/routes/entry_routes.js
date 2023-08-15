@@ -11,7 +11,7 @@ router.post('', async (req, res) => {
   try {
     const theCat = await CategoryModel.findOne({ name: req.body.category })
     if (theCat) {
-      const insertedEntry = await EntryModel.create({ content: req.body.content, category: theCat._id })
+      const insertedEntry = await EntryModel.create({ content: req.body.content, category: theCat })
       res.status(201).send(insertedEntry)
     } else {
       res.status(404).send({ error: 'category not found' })
